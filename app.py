@@ -23,12 +23,13 @@ HTML = """
         }
 
         .card {
-            background: rgba(255,255,255,0.88);
-            padding: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 32px;
             border-radius: 22px;
             text-align: center;
-            max-width: 440px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+            max-width: 480px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            position: relative;
         }
 
         h1 {
@@ -81,7 +82,6 @@ HTML = """
 <script>
     const noBtn = document.getElementById("no");
 
-    // NO button runs away 😈
     noBtn.addEventListener("mouseover", () => {
         noBtn.style.left = Math.random() * 80 + "vw";
         noBtn.style.top = Math.random() * 80 + "vh";
@@ -90,34 +90,39 @@ HTML = """
     function sayYes() {
         document.getElementById("question").innerHTML = `
             <h1>YAAAAAY!!! 🎉💖</h1>
-            <p style="font-size:18px; line-height:1.4;">
-                From Amir to Remah ❤️<br><br>
+
+            <p style="font-size:18px; line-height:1.5;">
+                <strong>From Amir to Remah ❤️</strong><br><br>
                 My love, I can’t express my feelings about you with words.
-                You’re amazing, sweet, smart, and sooo unbelievably pretty.
-                If I wanted to say everything about you, I’d need a whole book.
+                You are amazing, sweet, smart, and sooo unbelievably pretty.
+                If I wanted to describe everything about you, I’d need to write a whole book.
                 Every time you smile or look at me, my heart — no, my soul —
-                literally shakes. I love you, my Remah, my beautiful princess. 💕
+                literally shakes. I love you so much, my Remah,
+                my beautiful princess. 💕
             </p>
+
+            <div id="music" style="margin-top:16px;"></div>
         `;
 
         playSong();
         launchLove();
 
-        alert("I LOVE YOU BABE ❤️ KISS KISS — click close, I gotta tell you something 😘");
+        alert("I LOVE YOU BABE ❤️ KISS KISS — close this, I gotta tell you something 😘");
     }
 
-    // 🎵 Spotify starts AFTER clicking YES (browser-safe)
     function playSong() {
         const iframe = document.createElement("iframe");
-        iframe.src = "https://open.spotify.com/embed/track/0p6I1Kc5V4YqFlvZ3dZ1iM";
-        iframe.style.display = "none";
+        iframe.src = "https://open.spotify.com/embed/track/2plbrEY59IikOBgBGLjaoe";
+        iframe.width = "320";
+        iframe.height = "80";
+        iframe.style.borderRadius = "14px";
         iframe.allow = "autoplay; clipboard-write; encrypted-media";
-        document.body.appendChild(iframe);
+
+        document.getElementById("music").appendChild(iframe);
     }
 
-    // 🎈❤️ Hearts + balloons
     function launchLove() {
-        for (let i = 0; i < 35; i++) {
+        for (let i = 0; i < 40; i++) {
             create("❤️", "heart");
             create("🎈", "balloon");
         }
@@ -130,7 +135,7 @@ HTML = """
         el.style.left = Math.random() * 100 + "vw";
         el.style.animationDuration = (Math.random() * 3 + 3) + "s";
         document.body.appendChild(el);
-        setTimeout(() => el.remove(), 6500);
+        setTimeout(() => el.remove(), 7000);
     }
 </script>
 
